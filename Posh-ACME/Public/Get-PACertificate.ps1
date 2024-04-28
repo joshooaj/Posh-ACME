@@ -15,8 +15,7 @@ function Get-PACertificate {
     Begin {
         # Make sure we have an account configured
         if (-not (Get-PAAccount)) {
-            try { throw "No ACME account configured. Run Set-PAAccount or New-PAAccount first." }
-            catch { $PSCmdlet.ThrowTerminatingError($_) }
+            throw "No ACME account configured. Run Set-PAAccount or New-PAAccount first."
         }
 
         # prep to calculate SHA1 thumbprints

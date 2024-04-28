@@ -25,8 +25,7 @@ function Get-PAAccount {
     Begin {
         # make sure we have a server configured
         if (-not ($server = Get-PAServer)) {
-            try { throw "No ACME server configured. Run Set-PAServer first." }
-            catch { $PSCmdlet.ThrowTerminatingError($_) }
+            throw "No ACME server configured. Run Set-PAServer first."
         }
 
         # make sure the Contact emails have a "mailto:" prefix
